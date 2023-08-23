@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  heykodi-sign:
+    image: heykodi/sign
+    container_name: heykodi-sign
+    restart: unless-stopped
+    ports:
+    - "8080:80"
+    volumes:
+      - ./files:/var/www/html/app/storage/app/source
+      - ./database.sqlite:/var/www/html/app/database/database.sqlite
+      - ./.env:/var/www/html/app/.env
